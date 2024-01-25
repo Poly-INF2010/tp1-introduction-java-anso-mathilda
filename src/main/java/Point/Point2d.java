@@ -62,8 +62,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        Double x = this.vector[X] * rotationMatrix[0][0] + this.vector[Y] * rotationMatrix[0][1];
-        Double y = this.vector[X] * rotationMatrix[1][0] + this.vector[Y] * rotationMatrix[1][1];
+        double x = this.vector[X] * rotationMatrix[0][0] + this.vector[Y] * rotationMatrix[0][1];
+        double y = this.vector[X] * rotationMatrix[1][0] + this.vector[Y] * rotationMatrix[1][1];
         this.vector[X] = x;
         this.vector[Y] = y;
         return this;
@@ -75,8 +75,8 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        Double x = (this.vector[X] * Math.cos(angle)) - (this.vector[Y] * Math.sin(angle));
-        Double y = (this.vector[X] * Math.sin(angle)) + (this.vector[Y] * Math.cos(angle));
+        double x = (this.vector[X] * Math.cos(angle)) - (this.vector[Y] * Math.sin(angle));
+        double y = (this.vector[X] * Math.sin(angle)) + (this.vector[Y] * Math.cos(angle));
         this.vector[X] = x;
         this.vector[Y] = y;
         return this;
@@ -123,7 +123,6 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d clone() {
-        Point2d newPoint = new Point2d(this.vector[X], this.vector[Y]);
-        return newPoint;
+        return new Point2d(this.vector[X], this.vector[Y]);
     }
 }

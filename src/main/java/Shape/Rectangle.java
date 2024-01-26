@@ -52,6 +52,6 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return null;
+        return new Rectangle(cloneCoords(this.getCoords()));
     }
 }

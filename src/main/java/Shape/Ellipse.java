@@ -11,6 +11,14 @@ public class Ellipse extends BaseShape {
      * @param heightDiameter Height of the Ellipse
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
+        super();
+        double horizontalRadius = widthDiameter / 2 ;
+        double verticalRadius = heightDiameter / 2 ;
+        for(double i = -horizontalRadius ; i <= horizontalRadius ; i += 0.5){
+            double height;
+        }
+        /** faire cercle de plus en plus gros */
+
 
     }
 

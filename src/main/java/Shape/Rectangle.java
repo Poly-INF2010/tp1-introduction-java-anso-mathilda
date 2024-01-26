@@ -14,11 +14,13 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Double width, Double height) {
         super();
-        /**temp_collect
-                for x plus petit width
-                    for y plus petit que height
-
-                add temp_collect*/
+        double newWidth = (width/2);
+        double newHeight = (height/2);
+            for(double i = -newWidth ; i <= newWidth ; i += 0.5){
+                for(double j = -newHeight ; j <= newHeight ; j += 0.5){
+                    this.add(new Point2d(i, j));
+                }
+            }
     }
 
 
@@ -28,7 +30,13 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Point2d dimensions) {
         super();
-
+        double newWidth = (dimensions.X()/2);
+        double newHeight = (dimensions.Y()/2);
+        for(double i = -newWidth ; i <= dimensions.X() ; i += 0.5){
+            for(double j = -newHeight ; j <= dimensions.Y() ; j += 0.5){
+                this.add(new Point2d(i, j));
+            }
+        }
     }
 
     /**
@@ -37,14 +45,6 @@ public class Rectangle extends BaseShape {
      */
     private Rectangle(Collection<Point2d> coords) {
         super(coords);
-    }
-
-    private static ArrayList<Point2d> generatePoints(double width, double height){
-        Point2d point1 = new Point2d((width/2), (height/2));
-        Point2d point2 = new Point2d(-(width/2), (height/2));
-        Point2d point3 = new Point2d((width/2), -(height/2));
-        Point2d point4 = new Point2d(-(width/2), -(height/2));
-        return new ArrayList<>(Arrays.asList(point1, point2, point3, point4));
     }
 
     /** TODO

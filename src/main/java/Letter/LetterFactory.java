@@ -46,13 +46,15 @@ public final class LetterFactory {
         Rectangle left = new Rectangle(stripeThickness, maxHeight);
         letterB.addAll(left.getCoords());
 
+        Circle center = new Circle(maxWidth);
+
         Circle top = new Circle(maxWidth + halfStripeThickness);
-        Circle peeps = new Circle (maxWidth);
-        top.removeAll(peeps.getCoords());
+        top.remove(center);
         top.translate(top.getCoords(), new Point2d(halfMaxWidth - 5.0, -37.0));
         letterB.addAll(top.getCoords());
 
         Circle bottom = new Circle(maxWidth + halfStripeThickness);
+        bottom.remove(center);
         bottom.translate(bottom.getCoords(), new Point2d(halfMaxWidth - 5.0, 37.0));
         letterB.addAll(bottom.getCoords());
 
@@ -65,8 +67,16 @@ public final class LetterFactory {
      */
     public static BaseShape create_C() {
         BaseShape letterC = new BaseShape();
-        Rectangle side = new Rectangle(halfStripeThickness, maxHeight);
-        letterC.addAll(side.getCoords());
+
+        Ellipse curve = new Ellipse(maxWidth, maxHeight);
+        Ellipse middle = new Ellipse(maxWidth - stripeThickness, maxHeight - stripeThickness);
+        Rectangle side = new Rectangle(halfMaxWidth, halfMaxHeight);
+        side.translate(side.getCoords(), new Point2d(stripeThickness, 0.0));
+
+        curve.remove(middle);
+        curve.remove(side);
+
+        letterC.addAll(curve.getCoords());
 
         return letterC;
     }
@@ -147,6 +157,10 @@ public final class LetterFactory {
         BaseShape letterO = new BaseShape();
 
         Ellipse contour = new Ellipse(maxWidth, maxHeight);
+        Ellipse middle = new Ellipse(maxWidth - stripeThickness, maxHeight - stripeThickness);
+
+        contour.remove(middle);
+
         letterO.addAll(contour.getCoords());
 
         return letterO;

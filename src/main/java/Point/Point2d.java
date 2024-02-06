@@ -62,10 +62,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        double x = vector[X] * rotationMatrix[0][0] + vector[Y] * rotationMatrix[0][1];
-        double y = vector[X] * rotationMatrix[1][0] + vector[Y] * rotationMatrix[1][1];
-        vector[X] = x;
-        vector[Y] = y;
+        vector[X] = vector[X] * rotationMatrix[0][0] + vector[Y] * rotationMatrix[0][1];;
+        vector[Y] = vector[X] * rotationMatrix[1][0] + vector[Y] * rotationMatrix[1][1];
         return this;
     }
 
